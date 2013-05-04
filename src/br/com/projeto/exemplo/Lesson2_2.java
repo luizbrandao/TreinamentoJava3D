@@ -32,47 +32,41 @@ public class Lesson2_2 extends JFrame implements ActionListener
 	private Container container;
 	private GridBagConstraints position;
 
-	/*Botões na janela*/
+	/* Botões na janela */
 	private JButton button1, button2, button3, button4;
 	
-	/*Cria os branchgroups do subgrafo de contexto*/
+	/* Cria os branchgroups do subgrafo de contexto */
 	BranchGroup scene1, scene2;
 	
-	/*Objetos que fazem parte dos subgrafos de contexto*/
+	/* Objetos que fazem parte dos subgrafos de contexto */
 	BranchGroup blueCone, yellowCone, redSphere, greenSphere;
 
-	/*Variável que controla o estilo da tela: true (FullScreen), false (janela)*/
+	/* Variável que controla o estilo da tela: true (FullScreen), false (janela) */
 	boolean screenMode=false;
 
 	/*-----------------------------------------------------------------*/
  
 	/*--------------------------- CONSTRUTOR --------------------------*/
-	public Lesson2_2()
-	{
+	public Lesson2_2(){
 		/************************ PROGRAMAÇÃO JAVA **********************/
-
-		/*Utilização de um objeto Dimension para obter as configurações da tela*/
+		/* Utilização de um objeto Dimension para obter as configurações da tela */
 		Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
 
-		/*Ajusta o tamanho da janela*/
+		/* Ajusta o tamanho da janela */
 		this.setSize(dimension.width,dimension.height);
 
-		/*Retira as bordas da janela, criando o modo FullScreen*/
-		if (screenMode)
-		{
+		/* Retira as bordas da janela, criando o modo FullScreen */
+		if (screenMode){
 			this.setUndecorated(true);
-		}
-		else
-		{
+		} else {
 			this.setTitle("Curso de Desenvolvimento de Jogos com Java + Java3D - Manipulando o grafo de cena em tempo de execução");
 		}
 		
 		/************************* PROGRAMAÇÃO EM JAVA3D ****************/
-		
-		/*Cria o universo virtual*/
+		/* Cria o universo virtual */
 		universe = new VirtualUniverse();
 
-		/*Cria o Locale e anexa-o ao mundo virtual*/
+		/* Cria o Locale e anexa-o ao mundo virtual */
 		locale = new Locale(universe); 
 
 		/*Obtem caracteristicas do dispositivo gráfico utilizado: monitor*/
@@ -169,7 +163,7 @@ public class Lesson2_2 extends JFrame implements ActionListener
 		gridLayout.setConstraints(button2,position);
 		container.add(button2);
 
-		/*Botao da cena2 */
+		/* Botao da cena2 */
 		position.gridy=0;
 		position.gridx=4;
 		position.gridwidth=1;
@@ -178,7 +172,7 @@ public class Lesson2_2 extends JFrame implements ActionListener
 		gridLayout.setConstraints(button3,position);
 		container.add(button3);
 
-		/*Botao do cone da cena2*/
+		/* Botao do cone da cena2 */
 		position.gridy=0;
 		position.gridx=6;
 		position.gridwidth=1;
@@ -187,7 +181,7 @@ public class Lesson2_2 extends JFrame implements ActionListener
 		gridLayout.setConstraints(button4,position);
 		container.add(button4);
 
-		/*Canvas3D*/
+		/* Canvas3D */
 		position.gridy=3;
 		position.gridx=0;
 		position.gridwidth=8;
@@ -196,23 +190,19 @@ public class Lesson2_2 extends JFrame implements ActionListener
 		gridLayout.setConstraints(canvas3D,position);
 		container.add(canvas3D);
 
-		/*Trata o botao fechar no caso de modo janela*/
-		addWindowListener(new WindowAdapter() 
-		{
-			public void windowClosing(WindowEvent e)
-			{		
+		/* Trata o botao fechar no caso de modo janela */
+		addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent e){
 				System.exit(0); 
 			} 						
-		}
-		);
+		});
 
-		/*Exibe a janela*/
+		/* Exibe a janela */
 		this.show();
 	}
 
 	/*Método que cria o subgrafo de visualização*/
-	BranchGroup createViewGraph()
-	{
+	BranchGroup createViewGraph(){
 		/*Cria um objeto BranchGroup*/
 		BranchGroup viewPlatformBG = new BranchGroup();
 
