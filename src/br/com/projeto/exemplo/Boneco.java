@@ -25,8 +25,7 @@ public class Boneco {
 
 		SimpleUniverse universo = new SimpleUniverse();
 		BranchGroup group = new BranchGroup();
-		BoundingSphere bounds = new BoundingSphere(new Point3d(0.0, 0.0, 0.0),
-				100.0);
+		BoundingSphere bounds = new BoundingSphere(new Point3d(0.0, 0.0, 0.0),100.0);
 
 		Sphere esfera = new Sphere(0.25f);
 		TransformGroup tg = new TransformGroup();
